@@ -13,6 +13,15 @@ class Quiz extends Migration
      */
     public function up()
     {
+
+        
+    //
+        if (Schema::hasTable('Quiz')) {
+    //
+    }else{
+      
+
+
         Schema::create('Quiz', function (Blueprint $table) {
              $table->integer('quiz_id')->autoIncrement();
              $table->date('quiz_create');
@@ -23,7 +32,8 @@ class Quiz extends Migration
              $table->string('quiz_grade',255);
              $table->integer('quiz_totalScore');
              //$table->primary('quiz_id');
-        });
+            });
+        }
     }
 
     /**
