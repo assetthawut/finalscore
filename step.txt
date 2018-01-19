@@ -1,0 +1,7 @@
+1. สร้างดาตาเบส สำหรับอันที่พอทำได้เลย 
+2. สร้าง controller insert update delete select สำหรับทุกตาราง 
+3.สร้าง API ได้เลย 
+3.ดูระบบ login Authen
+4.การจัดการข้อมูลแบบ Ajax 
+5.Juqery UI 
+6. ดูเรื่อง Machine learning 
