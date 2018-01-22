@@ -21,7 +21,7 @@ class Question extends Migration
     }else{
 
          Schema::create('question', function (Blueprint $table) {
-            $table->increments('q_id');
+            $table->integer('q_id')->autoIncrement();
             $table->integer('quiz_id');
             $table->date('q_create');
             $table->date('q_lastUpdate');

@@ -18,7 +18,7 @@ class User extends Migration
         
         }else{
             Schema::create('user', function (Blueprint $table) {
-                $table->increments("u_id");
+                $table->integer("user_id")->autoIncrement();
                 $table->string("u_username",255);
                 $table->string("u_password",255);
                 $table->string("u_name",255);

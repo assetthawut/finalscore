@@ -18,7 +18,7 @@ class UserMajor extends Migration
         
         }else{
             Schema::create('user_major', function (Blueprint $table) {
-                $table->increments("m_id");
+                $table->integer("m_id")->autoIncrement();
                 $table->string("m_name",255);
             });            
         } 

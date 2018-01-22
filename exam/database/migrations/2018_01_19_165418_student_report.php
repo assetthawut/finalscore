@@ -14,11 +14,11 @@ class StudentReport extends Migration
     public function up()
     {
         //
-        if (Schema::hasTable('student_report')) {
+    if (Schema::hasTable('student_report')) {
     //
     }else{          
         Schema::create('student_report', function (Blueprint $table) {
-            $table->increments('s_id');
+            $table->integer('s_id')->autoIncrement();
             $table->integer('quiz_id');
             $table->integer('u_id');
             $table->date('s_successDate');

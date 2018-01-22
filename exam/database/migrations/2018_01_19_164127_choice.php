@@ -19,7 +19,7 @@ class Choice extends Migration
     }else{        
         Schema::create('choice', function (Blueprint $table) {
             
-            $table->increments('c_id');
+            $table->integer('c_id')->autoIncrement();
             $table->string('c_detail',255);
             $table->string('c_img',255);
             $table->integer('c_score');

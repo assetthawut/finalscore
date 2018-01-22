@@ -18,7 +18,7 @@ class QuizHistory extends Migration
         
         }else{
             Schema::create('quiz_history', function (Blueprint $table) {
-                $table->increments("qh_id");
+                $table->integer("qh_id")->autoIncrement();
                 $table->integer("quiz_id");
                 $table->integer("q_id");
                 $table->integer("u_id");

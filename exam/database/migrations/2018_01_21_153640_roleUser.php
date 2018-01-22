@@ -18,7 +18,7 @@ class RoleUser extends Migration
         
         }else{
             Schema::create('roleuser', function (Blueprint $table) {
-                $table->increments("r_id");
+                $table->integer("r_id")->autoIncrement();
                 $table->string("r_name",255);
             });            
         }        
