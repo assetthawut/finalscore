@@ -22,6 +22,7 @@ class QuizHistory extends Migration
                 $table->integer("quiz_id");
                 $table->integer("q_id");
                 $table->integer("u_id");
+                $table->integer("c_id");
                 $table->boolean("c_isCorrect");
                 $table->integer("c_score");
             });

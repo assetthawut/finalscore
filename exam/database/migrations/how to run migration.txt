@@ -1,0 +1,6 @@
+how to run migration
+follow this step 
+1. php artisan migrate 
+2. php artisan migrate --path=/database/migrations/test
+3. php artisan migrate --path=/database/migrations/change
+4. php artisan migrate --path=/database/migrations/fk
