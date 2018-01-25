@@ -15,4 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('role', 'RoleController');
+//Route::resource('role', 'RoleController');
+Route::resource('roleuser', 'RoleuserController');
