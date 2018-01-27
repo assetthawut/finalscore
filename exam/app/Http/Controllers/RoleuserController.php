@@ -27,7 +27,9 @@ class RoleuserController extends Controller
      */
     public function create()
     {
-        //
+        //redirect to form page
+        return view('roleuser.roleuserform');
+
     }
 
     /**
@@ -39,6 +41,13 @@ class RoleuserController extends Controller
     public function store(Request $request)
     {
         //
+        $roleuser = $request->input("r_name");
+        //Save to Database 
+        DB::table('roleuser')->insert(['r_name'=>$roleuser]);
+        //return view('roleuser.roleuserview');
+        //return "<a href='/roleuser'>back</a>";
+       //return redirect('/roleuser');
+        return "Success <a href='/roleuser'>back to roleuserlist</a>";
     }
 
     /**
@@ -50,6 +59,8 @@ class RoleuserController extends Controller
     public function show($id)
     {
         //
+        $roleuserItem = DB::table('roleuser')->where('r_id',$id)->get();
+        return view('roleuser.roleusershow',['roleuserItem'=>$roleuserItem]);
     }
 
     /**
@@ -61,6 +72,8 @@ class RoleuserController extends Controller
     public function edit($id)
     {
         //
+        $roleuserItem = DB::table('roleuser')->where('r_id',$id)->get();
+        return view('roleuser.roleuseredit',['roleuserItem'=>$roleuserItem]);
     }
 
     /**
@@ -73,6 +86,9 @@ class RoleuserController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $r_nameUpdate = $request->input('r_name');
+        DB::table('roleuser')->where('r_id', $id)->update(['r_name' => $r_nameUpdate]);
+        return "Success <a href='/roleuser'>back to roleuserlist</a>";
     }
 
     /**
@@ -84,5 +100,7 @@ class RoleuserController extends Controller
     public function destroy($id)
     {
         //
+        DB::table('roleuser')->where('r_id',$id)->delete();
+        return "delete Success <a href='/roleuser'>back to roleuserlist</a>";
     }
 }
