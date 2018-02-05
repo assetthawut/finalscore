@@ -17,3 +17,10 @@ Route::get('/', function () {
 
 //Route::resource('role', 'RoleController');
 Route::resource('roleuser', 'RoleuserController');
+Route::resource('usermajor','UsermajorController');
+
+
+Route::get('/upload','UploadController@index');
+Route::post('/upload/image','UploadController@store');
+Route::get('/upload/show','UploadController@show');
+
