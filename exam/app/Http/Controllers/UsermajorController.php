@@ -43,8 +43,9 @@ class UsermajorController extends Controller
         $m_nameInput = $request->input('m_name');
         DB::table('user_major')->insert(['m_name' => $m_nameInput]);
 
-        $usermajors = DB::table('user_major')->get();
-        return view('usermajor.usermajorview',['usermajors'=>$usermajors]);
+        //$usermajors = DB::table('user_major')->get();
+        //return view('usermajor.usermajorview',['usermajors'=>$usermajors]);
+        //error because still in store method
     }
 
     /**
@@ -55,7 +56,9 @@ class UsermajorController extends Controller
      */
     public function show($id)
     {
-        //
+        //DB::table('roleuser')->where('r_id',$id)->get();
+        $usermajorItem = DB::table('user_major')->where('m_id',$id)->get();
+        return view('usermajor.usermajorshow',['usermajorItem'=>$usermajorItem]);
     }
 
     /**
@@ -67,6 +70,9 @@ class UsermajorController extends Controller
     public function edit($id)
     {
         //
+            $usermajorItem = DB::table('user_major')->where('m_id',$id)->get();
+            return view('usermajor.usermajoredit',['usermajorItem'=>$usermajorItem]);
+
     }
 
     /**
@@ -79,7 +85,14 @@ class UsermajorController extends Controller
     public function update(Request $request, $id)
     {
         //
-
+        /*
+DB::table('users')
+            ->where('id', 1)
+            ->update(['votes' => 1]);
+        */
+        $m_nameEdit = $request->input('m_name');
+        DB::table('user_major')->where('m_id',$id)->update(['m_name'=>$m_nameEdit]);
+        return "Ok updated!!! <a href='/usermajor'> back  to homepage</a>";
 
     }
 
@@ -92,5 +105,7 @@ class UsermajorController extends Controller
     public function destroy($id)
     {
         //
+        DB::table('user_major')->where('m_id', $id)->delete();
+        return "delete <a href='/usermajor'>Back to homepage</a>";
     }
 }
