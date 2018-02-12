@@ -18,6 +18,7 @@ Route::get('/', function () {
 //Route::resource('role', 'RoleController');
 Route::resource('roleuser', 'RoleuserController');
 Route::resource('usermajor','UsermajorController');
+Route::resource('user','UserController');
 
 
 Route::get('/upload','UploadController@index');

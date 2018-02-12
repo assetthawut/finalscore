@@ -15,15 +15,16 @@ class UploadController extends Controller
     }
 
     public function store(Request $request){
-    	 $path =$request->file('fileUpload')->storeAs('public','upload.jpg');
-    	 $img = asset('/fileA/test.jpg');
+    	 $path =$request->file('fileUpload')->storeAs('public/testfolder','upload.jpg');
+    	 //$img = asset('/fileA/test.jpg');
     	 //$imgurl = Storage::url('test.jpg');
     	 return "success";
     }
 
     public function show(){
 
-    	$testimgurl = Storage::url('public/upload.jpg');
+    	$testimgurl = Storage::url('public/testfolder/upload.jpg');
     	return "<img src='".$testimgurl."' width='30%' height='30%'>";
+        //return $testimgurl;
     }	
 }
