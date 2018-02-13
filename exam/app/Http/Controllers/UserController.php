@@ -67,6 +67,9 @@ class UserController extends Controller
     public function show($id)
     {
         //
+
+        $usershow = DB::table('user')->where('user_id',$id)->get();
+        return  view('user.usershow',['usershow'=>$usershow]);
     }
 
     /**
@@ -77,7 +80,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $usershow = DB::table('user')->where('user_id',$id)->get();
+        return  view('user.useredit',['usershow'=>$usershow]);
     }
 
     /**
@@ -90,6 +94,21 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $u_username = $request->input('u_username');
+        $u_password = $request->input('u_password');
+        $u_name     = $request->input('u_name');
+        $u_surname  = $request->input('u_surname');
+        $u_birthdate  = $request->input('u_birthdate');
+        $u_img      = $request->input('u_img');
+        $r_id       = $request->input('r_id');
+        $m_id       = $request->input('m_id');
+
+        if($u_img == null){ $u_img = "defaut.jpg"; }
+
+        DB::table('user')->where('user_id',$id)->update(
+            ['u_username' => $u_username,'u_password'=>$u_password,'u_name'=>$u_name,'u_surname'=>$u_surname,'u_birthdate'=>$u_birthdate,'u_img'=>$u_img,'r_id'=>$r_id,'m_id'=>$m_id]
+            );
+        return "ok update";
     }
 
     /**
@@ -101,5 +120,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+        db::table('user')->where('user_id',$id)->delete();
+        return "Delete OK";
     }
 }
