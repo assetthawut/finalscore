@@ -15,9 +15,6 @@
 		{{ method_field('DELETE')}}
 		<button>delete</button>
 	</form>
-
-
-
 	<br>
 
 @endforeach

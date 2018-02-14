@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
 
-class QuizController extends Controller
+class QuizhistoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class QuizController extends Controller
     public function index()
     {
         //
-        $allquizs = DB::table('quiz')->get();
-        return view('quiz.quizview',['allquizs'=>$allquizs]);
+        return view('quizhistory.qhview');
     }
 
     /**
@@ -27,8 +25,6 @@ class QuizController extends Controller
     public function create()
     {
         //
-        $allquizs = DB::table('quiz')->get();
-        return view('quiz.quizform',['allquizs'=>$allquizs]);
     }
 
     /**
@@ -40,7 +36,6 @@ class QuizController extends Controller
     public function store(Request $request)
     {
         //
-        return "will store";
     }
 
     /**

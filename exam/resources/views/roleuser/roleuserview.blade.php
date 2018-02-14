@@ -10,9 +10,4 @@
 		{{ method_field('delete') }}
 		<button type="submit">Delete</button>
 	</form>
-	<form method="post" action="/user/{{ $roleuser->r_id}}">
-		{{csrf_field()}}
-		{{ method_field('DELETE')}}
-		<button>delete</button>
-	</form>
 @endforeach 

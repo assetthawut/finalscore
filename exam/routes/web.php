@@ -19,6 +19,8 @@ Route::get('/', function () {
 Route::resource('roleuser', 'RoleuserController');
 Route::resource('usermajor','UsermajorController');
 Route::resource('user','UserController');
+Route::resource('quiz','QuizController');
+//Route::resource('quizhistory','QuizhistoryController');
 
 
 Route::get('/upload','UploadController@index');
