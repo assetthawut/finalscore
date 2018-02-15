@@ -40,7 +40,19 @@ class QuizController extends Controller
     public function store(Request $request)
     {
         //
-        return "will store";
+        $quiz_create     = $request->input("quiz_create");
+        $quiz_lastUpdate = $request->input("quiz_lastUpdate");
+        $u_id            = $request->input("u_id");
+        $quiz_subject    = $request->input("quiz_subject");
+        $quiz_type       = $request->input("quiz_type");
+        $quiz_grade      = $request->input("quiz_grade");
+        $quiz_totalScore = $request->input("quiz_totalScore");
+        
+        DB::table('quiz')->insert(
+            ["quiz_create" => $quiz_create,"quiz_lastUpdate" => $quiz_lastUpdate,"u_id" => $u_id,"quiz_subject" => $quiz_subject,"quiz_type" => $quiz_type,"quiz_grade" => $quiz_grade,"quiz_totalScore" => $quiz_totalScore]
+            );
+            
+        return "store complete";
     }
 
     /**
@@ -52,6 +64,8 @@ class QuizController extends Controller
     public function show($id)
     {
         //
+        $quizShow = DB::table('quiz')->where("quiz_id",$id)->get();
+        return view('quiz.quizshow',['quizShow'=>$quizShow]);        
     }
 
     /**
@@ -63,6 +77,8 @@ class QuizController extends Controller
     public function edit($id)
     {
         //
+        $quizEdit = DB::table('quiz')->where("quiz_id",$id)->get();
+        return view('quiz.quizedit',['quizEdit'=>$quizEdit]);         
     }
 
     /**
@@ -75,6 +91,19 @@ class QuizController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $quiz_create     = $request->input("quiz_create");
+        $quiz_lastUpdate = $request->input("quiz_lastUpdate");
+        $u_id            = $request->input("u_id");
+        $quiz_subject    = $request->input("quiz_subject");
+        $quiz_type       = $request->input("quiz_type");
+        $quiz_grade      = $request->input("quiz_grade");
+        $quiz_totalScore = $request->input("quiz_totalScore");
+
+        DB::table("quiz")->where("quiz_id",$id)->update(
+            ["quiz_create" => $quiz_create,"quiz_lastUpdate" => $quiz_lastUpdate,"u_id" => $u_id,"quiz_subject" => $quiz_subject,"quiz_type" => $quiz_type,"quiz_grade" => $quiz_grade,"quiz_totalScore" => $quiz_totalScore]   
+        );
+
+        return "edit success";
     }
 
     /**
@@ -86,5 +115,7 @@ class QuizController extends Controller
     public function destroy($id)
     {
         //
+        DB::table("quiz")->where("quiz_id",$id)->delete();
+        return "Delete Success";
     }
 }
