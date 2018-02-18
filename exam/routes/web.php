@@ -27,3 +27,10 @@ Route::get('/upload','UploadController@index');
 Route::post('/upload/image','UploadController@store');
 Route::get('/upload/show','UploadController@show');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('auth/facebook', 'AuthController@redirectToProvider');
+Route::get('auth/facebook/callback', 'AuthController@handleProviderCallback');
