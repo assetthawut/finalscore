@@ -18,8 +18,9 @@ Route::get('/', function () {
 //Route::resource('role', 'RoleController');
 Route::resource('roleuser', 'RoleuserController');
 Route::resource('usermajor','UsermajorController');
-Route::resource('user','UserController');
+Route::resource('user','UserController')->middleware("auth");
 Route::resource('quiz','QuizController');
+Route::resource('question','QuestionController');
 //Route::resource('quizhistory','QuizhistoryController');
 
 

@@ -27,6 +27,7 @@ class QuizController extends Controller
     public function create()
     {
         //
+        /* mistake dont't send quiz data [not fix]*/
         $allquizs = DB::table('quiz')->get();
         return view('quiz.quizform',['allquizs'=>$allquizs]);
     }
